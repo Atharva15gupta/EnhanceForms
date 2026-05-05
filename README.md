@@ -3,9 +3,6 @@
 
 ![EchoForms](public/images/image.png)
 
-
-![Stars](https://img.shields.io/github/stars/10xshivam/EchoForms?style=social) ![Forks](https://img.shields.io/github/forks/10xshivam/EchoForms?style=social) ![Issues](https://img.shields.io/github/issues/10xshivam/EchoForms)
-
 ## 🌟 Overview
 
 🚀 **EchoForms** is an AI-powered form generation SaaS that allows users to create and manage forms instantly using simple prompts. With **real-time response tracking, email notifications, and seamless data export**, EchoForms simplifies form creation without any coding.  
@@ -94,14 +91,6 @@
 - **Improve Email Notifications** – Allow more customization for email alerts and templates.  
 - **Add Form Templates** – Provide pre-built templates for surveys, registrations, and feedback forms.  
 - **Optimize Performance** – Improve loading times and database efficiency. 
-
----
-
-## 🌟 Stargazers & Forkers
-
-We appreciate your support! 🌟🍴
-
-[![Stargazers](https://img.shields.io/github/stars/10xshivam/EchoForms)](https://github.com/10xshivam/EchoForms/stargazers) [![Forks](https://img.shields.io/github/forks/10xshivam/EchoForms)](https://github.com/10xshivam/EchoForms/network/members)
 
 ---
 

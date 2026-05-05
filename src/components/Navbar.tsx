@@ -26,7 +26,7 @@ export default function Navbar() {
               </Button>
             </Link>
             <Link
-              href={"https://github.com/10xshivam/EchoForms"}
+              href={"https://github.com/Atharva15gupta/Echoforms"}
               className="text-black/60 dark:text-white/70 hover:text-black dark:hover:text-white max-md:hidden"
             >
               <Github  />

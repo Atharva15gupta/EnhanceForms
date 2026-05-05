@@ -82,21 +82,21 @@ export default function Footer() {
           <p className="font-bold max-md:text-sm">CONNECT</p>
           <div className="flex flex-col dark:text-white/50">
             <Link
-              href={"https://github.com/10xshivam"}
+              href={"https://github.com/Atharva15gupta"}
               target="_blank"
               className="text-sm hover:text-zinc-300 transition-colors duration-200 max-md:text-xs"
             >
               Github
             </Link>
             <Link
-              href={"https://www.linkedin.com/in/codrshivam/"}
+              href={"https://www.linkedin.com/in/atharva-gupta-71a016274/"}
               target="_blank"
               className="text-sm hover:text-zinc-300 transition-colors duration-200 max-md:text-xs"
             >
               LinkedIn
             </Link>
             <Link
-              href={"https://x.com/shivamcodes_"}
+              href={"https://x.com/I_am_Atharva77"}
               target="_blank"
               className="text-sm hover:text-zinc-300 transition-colors duration-200 max-md:text-xs"
             >

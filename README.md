@@ -1,7 +1,7 @@
 # **EnhanceForms – AI-Powered Form Builder** 
 
 
-![EnhanceForms](public/images/image.png)
+<img width="2560" height="1440" alt="Screenshot (959)" src="https://github.com/user-attachments/assets/c6ca60a4-858c-46e2-9f6d-fc4f421d5475" />
 
 ## 🌟 Overview
 

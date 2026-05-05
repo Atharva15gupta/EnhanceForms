@@ -40,7 +40,7 @@ export default function Footer() {
             className="mr-1 text-black dark:text-white/50 inline max-md:w-3 max-md:m-0 max-md:mr-0.5"
             size={15}
           />
-          2025 EnhanceForms Private Limited.
+          2026 EnhanceForms Private Limited.
         </p>
         <p className="text-black dark:text-white/50 text-sm max-md:text-xs">
           All rights reserved.

@@ -22,10 +22,25 @@ export async function GET() {
       .limit(1);
 
     if (!user || user.length === 0) {
-      return NextResponse.json(
-        { error: "User not found in database" },
-        { status: 404 }
-      );
+      const email = _user.emailAddresses?.length > 0 ? _user.emailAddresses[0].emailAddress : "";
+
+      try {
+        await db.insert(users).values({
+          id: _user.id,
+          name: _user.firstName || "Unknown",
+          email: email,
+          image: _user.imageUrl || "https://default-avatar.com/avatar.png",
+          plan: "Basic",
+        });
+      } catch (insertError) {
+        console.error("Ignored insert error (possible webhook race condition):", insertError);
+      }
+
+      return NextResponse.json({
+        createdForms: 0,
+        totalSubmissions: 0,
+        plan: "Basic",
+      });
     }
 
     return NextResponse.json({

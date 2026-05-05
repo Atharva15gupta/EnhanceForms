@@ -42,7 +42,7 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/10xshivam/EchoForms.git
+   git clone https://github.com/Atharva15gupta/Echoforms.git
    cd echoforms
    ```
 2. Install dependencies:
@@ -71,7 +71,7 @@
 1. **Fork the repository** by clicking the "Fork" button.
 2. **Clone your fork:**
    ```bash
-   git clone https://github.com/10xshivam/EchoForms.git
+   git clone https://github.com/Atharva15gupta/Echoforms.git
    ```
 3. **Create a new branch:**
    ```bash
@@ -116,6 +116,6 @@ EchoForms is licensed under the MIT License.
 
 For queries or collaborations:
 
-- Email: [kumarshivam3788@gmail.com](mailto:kumarshivam3788@gmail.com)
+- Email: [atharvagutpa7007@gmail.com](mailto:atharvagupta7007@gmail.com)
 - LinkedIn: [codrshivam](https://www.linkedin.com/in/codrshivam/)
 - Twitter: [@shivamcodes_](https://x.com/shivamcodes_)

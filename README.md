@@ -106,5 +106,5 @@ EchoForms is licensed under the MIT License.
 For queries or collaborations:
 
 - Email: [atharvagutpa7007@gmail.com](mailto:atharvagupta7007@gmail.com)
-- LinkedIn: [codrshivam](https://www.linkedin.com/in/codrshivam/)
-- Twitter: [@shivamcodes_](https://x.com/shivamcodes_)
+- LinkedIn: [Atharva Gupta](https://www.linkedin.com/in/atharva-gupta-71a016274/)
+- Twitter: [@I_am_Atharva77](https://x.com/I_am_Atharva77)

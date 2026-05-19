@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Loader } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
+import { AxiosError } from "axios";
+
 interface usageInterface {
   createdForms: number;
   totalSubmissions: number;
@@ -28,9 +30,14 @@ export default function Dashboard() {
         const res = await axios.get(`/api/getUsage`);
         const data = await res.data;
         setUsage(data);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Error fetching usage data:", err);
-        setError(err.response?.data?.error || err.message || "Failed to load dashboard data.");
+        const axiosError = err as AxiosError<{ error?: string }>;
+        setError(
+          axiosError.response?.data?.error ||
+            (err instanceof Error ? err.message : null) ||
+            "Failed to load dashboard data."
+        );
       }
     }
 
@@ -42,7 +49,9 @@ export default function Dashboard() {
       <div className="flex justify-center items-center min-h-screen flex-col gap-4">
         <p className="text-red-500 font-semibold">{error}</p>
         <p className="text-zinc-500 text-sm max-w-md text-center">
-          This usually happens if your Database URL is missing or incorrect in Vercel's Environment Variables, or if you haven't pushed your database schema yet.
+          This usually happens if your Database URL is missing or incorrect in
+          Vercel&apos;s Environment Variables, or if you haven&apos;t pushed your
+          database schema yet.
         </p>
       </div>
     );

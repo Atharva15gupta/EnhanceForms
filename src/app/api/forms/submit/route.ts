@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { submissions, forms, users } from "@/db/schema";
 import { eq } from "drizzle-orm";
-import { writeFile } from "fs/promises";
+import { mkdir, writeFile } from "fs/promises";
 import path from "path";
 import { sendEmail } from "@/lib/mail";
 
@@ -72,7 +72,9 @@ export async function POST(req: NextRequest) {
       if (value instanceof Blob) {
         const fileName = `${Date.now()}_${value.name}`;
         const filePath = `/temp/${fileName}`;
-        const savePath = path.join(process.cwd(), "public/temp", fileName);
+        const uploadDir = path.join(process.cwd(), "public/temp");
+        const savePath = path.join(uploadDir, fileName);
+        await mkdir(uploadDir, { recursive: true });
         await writeFile(savePath, Buffer.from(await value.arrayBuffer()));
         submissionContent[key] = filePath;
       } else {

@@ -81,6 +81,8 @@ export default function ShareUrl() {
       const formPayload = new FormData();
 
       Object.entries(formData).forEach(([key, value]) => {
+        if (key === "formTitle" || key === "formHeading") return;
+
         if (value instanceof File) {
           formPayload.append(key, value);
         } else {

@@ -1,6 +1,7 @@
 import { db } from "@/db";
 import { submissions, forms } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { currentUser } from "@clerk/nextjs/server";
+import { and, eq } from "drizzle-orm";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -12,17 +13,22 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const formId = searchParams.get("formId");
 
-    if (!formId) {
-      return NextResponse.json({ success: false, message: "Invalid Form ID" });
+    if (!formId || isNaN(Number(formId))) {
+      return NextResponse.json({ success: false, message: "Invalid Form ID" }, { status: 400 });
+    }
+
+    const user = await currentUser();
+    if (!user) {
+      return NextResponse.json({ success: false, message: "User not authenticated" }, { status: 401 });
     }
 
     const form = (await db
       .select()
       .from(forms)
-      .where(eq(forms.id, Number(formId)))
+      .where(and(eq(forms.id, Number(formId)), eq(forms.ownerId, user.id)))
       .limit(1)) as { content: { formTitle: string } }[];
     if (!form.length) {
-      return NextResponse.json({ success: false, message: "Form not found" });
+      return NextResponse.json({ success: false, message: "Form not found" }, { status: 404 });
     }
 
     const responses = await db

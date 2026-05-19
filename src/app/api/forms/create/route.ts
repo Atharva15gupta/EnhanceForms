@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     if (!user[0])
       return NextResponse.json({ error: "User not found" }, { status: 404 });
 
-    const isPro = user[0].plan === "pro";
+    const isPro = user[0].plan?.toLowerCase() === "pro";
     const createdForms = user[0].createdForms ?? 0;
 
     if (!isPro && createdForms >= 5) {

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { currentUser } from "@clerk/nextjs/server";
 import Razorpay from "razorpay";
 
 const razorpay = new Razorpay({
@@ -8,19 +9,22 @@ const razorpay = new Razorpay({
 
 export async function POST(req: NextRequest) {
   try {
-    const { userId, amount } = await req.json();
+    await req.json().catch(() => null);
+    const user = await currentUser();
 
-    if (!userId || !amount) {
-      return NextResponse.json({ success: false, message: "Missing parameters" }, { status: 400 });
+    if (!user) {
+      return NextResponse.json(
+        { success: false, message: "User not authenticated" },
+        { status: 401 }
+      );
     }
 
-    // Create Razorpay order
     const order = await razorpay.orders.create({
-      amount: amount * 100,
+      amount: 499 * 100,
       currency: "INR",
-      receipt: `receipt_${userId}`,
+      receipt: `receipt_${user.id}`,
       payment_capture: true,
-      notes: { userId },
+      notes: { userId: user.id },
     });
 
     return NextResponse.json({ success: true, order });
